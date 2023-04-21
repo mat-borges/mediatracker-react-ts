@@ -3,6 +3,7 @@ import { checkLeapYear, monthName, weekdayName } from '../../constants/dates';
 import { darkAccentColor, fontColor } from '../../constants/colors';
 
 import Media from './Media';
+import { accentColor } from '../../constants/colors';
 import styled from 'styled-components';
 import { useState } from 'react';
 
@@ -46,6 +47,7 @@ export default function HomeLoggedIn() {
               <h2>{weekdayName(day.getDay())}</h2>
             </DayTitle>
             <DayContent>
+              <Media />
               <Media />
             </DayContent>
           </Day>
@@ -131,6 +133,15 @@ const DayTitle = styled.div`
 const DayContent = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 10px;
   width: 100%;
+  height: 90%;
+  div {
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+  }
 `;
