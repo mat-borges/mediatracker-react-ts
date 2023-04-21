@@ -17,15 +17,15 @@ function weekdayName(weekday: number) {
     case 0:
       return 'Domingo';
     case 1:
-      return 'Segunda';
+      return 'Segunda-Feira';
     case 2:
-      return 'Terça';
+      return 'Terça-Feira';
     case 3:
-      return 'Quarta';
+      return 'Quarta-Feira';
     case 4:
-      return 'Quinta';
+      return 'Quinta-Feira';
     case 5:
-      return 'Sexta';
+      return 'Sexta-Feira';
     case 6:
       return 'Sábado';
     default:
