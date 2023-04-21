@@ -1,9 +1,8 @@
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { accentColor, darkAccentColor, fontColor } from '../../constants/colors';
 import { checkLeapYear, monthName, weekdayName } from '../../constants/dates';
-import { darkAccentColor, fontColor } from '../../constants/colors';
 
 import Media from './Media';
-import { accentColor } from '../../constants/colors';
 import styled from 'styled-components';
 import { useState } from 'react';
 
