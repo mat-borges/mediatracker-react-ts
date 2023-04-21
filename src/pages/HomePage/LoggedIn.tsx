@@ -1,5 +1,7 @@
 import { checkLeapYear, monthName, weekdayName } from '../../constants/dates';
 
+import Media from './Media';
+import { accentColor } from '../../constants/colors';
 import styled from 'styled-components';
 
 export default function HomeLoggedIn() {
@@ -24,9 +26,7 @@ export default function HomeLoggedIn() {
               <h2>{weekdayName(day.getDay())}</h2>
             </DayTitle>
             <DayContent>
-              <div>aaaaaaaaaaaaaaaa</div>
-              <div>bbbbbbbbbbbbbbbb</div>
-              <div>cccccccccccccccc</div>
+              <Media />
             </DayContent>
           </Day>
         );
@@ -59,10 +59,11 @@ const Day = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 1px 1px 6px 1px;
   margin: 6px 5px 0 0;
+  padding: 1px 1px 6px 1px;
   border-radius: 10px;
   background-color: grey;
+  box-shadow: 2px 2px 8px 2px rgba(246, 67, 72, 0.6);
 `;
 
 const DayTitle = styled.div`
@@ -78,15 +79,6 @@ const DayTitle = styled.div`
 const DayContent = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 10px;
   width: 100%;
-  height: 90%;
-  div {
-    min-height: 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 80%;
-  }
 `;
