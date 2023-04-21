@@ -1,11 +1,10 @@
 import { checkLeapYear, monthName, weekdayName } from '../../constants/dates';
 
-import { CSSProperties } from 'react';
 import styled from 'styled-components';
 
 export default function HomeLoggedIn() {
   const today = new Date();
-  const month = today.getMonth() + 1;
+  const month = today.getMonth();
   const year = today.getFullYear();
 
   const daysOfTheMonth = checkLeapYear(month + 1, year);
@@ -19,7 +18,7 @@ export default function HomeLoggedIn() {
 
       if (isCurrentMonth) {
         return (
-          <Day key={dayOfMonth} isCurrentMonth={isCurrentMonth}>
+          <Day key={dayOfMonth}>
             <DayTitle>
               <h1>{dayOfMonth}</h1>
               <h2>{weekdayName(day.getDay())}</h2>
@@ -45,13 +44,6 @@ export default function HomeLoggedIn() {
   );
 }
 
-interface DayProps {
-  slot?: string;
-  style?: CSSProperties;
-  title?: string;
-  isCurrentMonth: boolean;
-}
-
 const Calendar = styled.div`
   display: grid;
   width: 100%;
@@ -63,8 +55,8 @@ const Calendar = styled.div`
   grid-template-rows: repeat(6, minmax(300px, 1fr));
 `;
 
-const Day = styled.div<DayProps>`
-  display: ${(props) => (props.isCurrentMonth ? 'flex' : 'none')};
+const Day = styled.div`
+  display: flex;
   flex-direction: column;
   height: 100%;
   padding: 1px 1px 6px 1px;
