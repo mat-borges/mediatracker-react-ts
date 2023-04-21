@@ -87,5 +87,11 @@ const MediaInfos = styled.div`
     width: 100%;
     height: 2.8rem;
     object-fit: cover;
+    :hover {
+      opacity: 0.5;
+    }
+  }
+  h1:hover {
+    opacity: 0.5;
   }
 `;
