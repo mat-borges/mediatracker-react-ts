@@ -1,4 +1,4 @@
-import { accentColor, fontColor, mainColor, secondaryColor } from '../../constants/colors';
+import { accentColor, darkMainColor, darkSecondaryColor, fontColor } from '../../constants/colors';
 
 import { createGlobalStyle } from 'styled-components';
 
@@ -31,12 +31,12 @@ time, mark, audio, video {
 		width: 0.3em;
 	}
 	::-webkit-scrollbar-track {
-		background: ${mainColor};
+		background: ${darkMainColor};
 	}
 	::-webkit-scrollbar-thumb {
 		max-height: 50%;
 		border-radius: 5px;
-		background: ${secondaryColor};
+		background: ${darkSecondaryColor};
 		:hover {
 			background: ${accentColor};
 		}
@@ -52,7 +52,7 @@ body {
 	font-size: 16px;
 	line-height: 1.2;
 	font-family: 'Nunito Sans', sans-serif;
-	background-color: ${mainColor};
+	background-color: ${darkMainColor};
 }
 ol, ul {
 	list-style: none;
