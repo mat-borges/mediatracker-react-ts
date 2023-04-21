@@ -1,7 +1,7 @@
+import { accentColor, darkAccentColor, fontColor } from '../../constants/colors';
 import { checkLeapYear, monthName, weekdayName } from '../../constants/dates';
 
 import Media from './Media';
-import { accentColor } from '../../constants/colors';
 import styled from 'styled-components';
 
 export default function HomeLoggedIn() {
@@ -48,8 +48,7 @@ const Calendar = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
-  color: white;
-  background-color: black;
+  color: ${fontColor};
   gap: 10px;
   grid-template-columns: repeat(7, minmax(150px, 1fr));
   grid-template-rows: repeat(6, minmax(300px, 1fr));
@@ -68,12 +67,22 @@ const Day = styled.div`
 
 const DayTitle = styled.div`
   display: flex;
-  align-items: center;
+  align-items: first baseline;
   width: 100%;
-  height: 40px;
-  padding: 6px;
+  height: 2.5rem;
+  padding: 0.1rem;
   border-radius: 10px 10px 0 0;
-  background-color: darkgrey;
+  background-color: ${darkAccentColor};
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-left: 0.4rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-left: 0.4rem;
+  }
 `;
 
 const DayContent = styled.div`
