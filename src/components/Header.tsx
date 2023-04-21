@@ -1,10 +1,4 @@
-import {
-  accentColor,
-  darkSecondaryColor,
-  fontAccentColor,
-  fontSecondayColor,
-  inputBackColor,
-} from '../constants/colors';
+import { accentColor, darkSecondaryColor, fontColor, inputBackColor } from '../constants/colors';
 
 import { FaUser } from 'react-icons/fa';
 import logo from '../assets/images/logo.png';
@@ -24,7 +18,7 @@ export default function Header() {
         <h1>Mídias</h1>
         <h1>Wishlist</h1>
         <div>
-          <FaUser size={'50'} color={fontSecondayColor} />
+          <FaUser size={'50'} color={fontColor} />
         </div>
       </RightBox>
     </HeaderContainer>
