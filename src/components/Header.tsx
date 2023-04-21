@@ -7,20 +7,20 @@ import styled from 'styled-components';
 export default function Header() {
   return (
     <HeaderContainer>
-      <LeftBox>
+      <Logo>
         <img src={logo} />
         <h1>MediaTracker</h1>
-      </LeftBox>
+      </Logo>
       <SearchBar>
         <input type="text" placeholder="Pesquisar" />
       </SearchBar>
-      <RightBox>
+      <Menu>
         <h1>Mídias</h1>
         <h1>Wishlist</h1>
         <div>
           <FaUser size={'50'} color={fontColor} />
         </div>
-      </RightBox>
+      </Menu>
     </HeaderContainer>
   );
 }
@@ -33,7 +33,7 @@ const HeaderContainer = styled.div`
   height: 100px;
   background-color: ${darkSecondaryColor};
 `;
-const LeftBox = styled.div`
+const Logo = styled.div`
   display: flex;
   align-items: center;
   font-size: 2.5rem;
@@ -74,7 +74,7 @@ const SearchBar = styled.div`
   }
 `;
 
-const RightBox = styled.div`
+const Menu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
