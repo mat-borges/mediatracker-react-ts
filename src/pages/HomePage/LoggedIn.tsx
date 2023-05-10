@@ -1,10 +1,10 @@
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { checkLeapYear, monthName, weekdayName } from '../../constants/dates';
 import { darkAccentColor, fontColor } from '../../constants/colors';
-import { useEffect, useState } from 'react';
 
 import Media from './Media';
 import styled from 'styled-components';
+import { useState } from 'react';
 
 export default function HomeLoggedIn() {
   const [date, setDate] = useState({
