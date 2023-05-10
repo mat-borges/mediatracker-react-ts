@@ -1,22 +1,42 @@
-import { accentColor, darkAccentColor, fontColor } from '../../constants/colors';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { checkLeapYear, monthName, weekdayName } from '../../constants/dates';
+import { darkAccentColor, fontColor } from '../../constants/colors';
+import { useEffect, useState } from 'react';
 
 import Media from './Media';
 import styled from 'styled-components';
 
 export default function HomeLoggedIn() {
-  const today = new Date();
-  const month = today.getMonth();
-  const year = today.getFullYear();
+  const [date, setDate] = useState({
+    fullDate: new Date(),
+    month: new Date().getMonth(),
+    year: new Date().getFullYear(),
+    daysOfTheMonth: checkLeapYear(new Date().getMonth() + 1, new Date().getFullYear()),
+  });
 
-  const daysOfTheMonth = checkLeapYear(month + 1, year);
+  function handlePrevMonth() {
+    setDate((prevDate) => {
+      const prevMonth = prevDate.month - 1;
+      const prevYear = prevMonth < 0 ? prevDate.year - 1 : prevDate.year;
+      const daysOfTheMonth = checkLeapYear(prevMonth + 1, prevYear);
+      return { ...prevDate, month: prevMonth, year: prevYear, daysOfTheMonth };
+    });
+  }
+
+  function handleNextMonth() {
+    setDate((prevDate) => {
+      const nextMonth = prevDate.month + 1;
+      const nextYear = nextMonth > 11 ? prevDate.year + 1 : prevDate.year;
+      const daysOfTheMonth = checkLeapYear(nextMonth + 1, nextYear);
+      console.log(daysOfTheMonth);
+      return { ...prevDate, month: nextMonth, year: nextYear, daysOfTheMonth };
+    });
+  }
 
   function renderCalendar() {
-    return daysOfTheMonth.map((day) => {
+    return date.daysOfTheMonth.map((day) => {
       const dayOfMonth = day.getDate();
-      const isCurrentMonth = day.getMonth() === month;
-
-      console.log(isCurrentMonth);
+      const isCurrentMonth = day.getMonth() === date.month;
 
       if (isCurrentMonth) {
         return (
@@ -38,11 +58,34 @@ export default function HomeLoggedIn() {
 
   return (
     <main>
-      <h1>{monthName(month)}</h1>
+      <Title>
+        <FaArrowLeft size={'1.8rem'} cursor={'pointer'} onClick={handlePrevMonth} />
+        <h1>{monthName(date.month)}</h1>
+        <FaArrowRight size={'1.8rem'} cursor={'pointer'} onClick={handleNextMonth} />
+      </Title>
       <Calendar>{renderCalendar()}</Calendar>
+      <Title>
+        <FaArrowLeft size={'1.8rem'} cursor={'pointer'} />
+        <h1>{monthName(date.month)}</h1>
+        <FaArrowRight size={'1.8rem'} cursor={'pointer'} />
+      </Title>
     </main>
   );
 }
+
+const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 3rem;
+  }
+`;
 
 const Calendar = styled.div`
   display: grid;
